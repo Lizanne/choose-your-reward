@@ -1,0 +1,239 @@
+@import url('https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800;900&display=swap');
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #f9f9f9;
+  font-family: 'Figtree', system-ui, sans-serif;
+  color: #1b2330;
+  -webkit-font-smoothing: antialiased;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+button {
+  font-family: inherit;
+}
+
+.page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px 80px;
+  gap: 40px;
+}
+
+.phone-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.side-panel {
+  width: 300px;
+  align-self: flex-start;
+  position: sticky;
+  top: 32px;
+  background: #fff;
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(10,13,18,0.05), 0 12px 24px rgba(10,13,18,0.08);
+  font-size: 13px;
+}
+
+.side-panel h2 {
+  margin: 0 0 4px;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.side-panel p.muted {
+  margin: 0 0 16px;
+  font-size: 12px;
+  color: #5b6678;
+  line-height: 16px;
+}
+
+.side-panel h3 {
+  margin: 16px 0 8px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #5b6678;
+}
+
+.seg {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 4px;
+  background: #f3f5f9;
+  padding: 4px;
+  border-radius: 10px;
+}
+
+.seg button {
+  background: transparent;
+  border: 0;
+  padding: 8px 6px;
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 7px;
+  cursor: pointer;
+  color: #5b6678;
+}
+
+.seg button.active {
+  background: #fff;
+  color: #1b2330;
+  box-shadow: 0 1px 2px rgba(10,13,18,0.08);
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 8px 0;
+  font-size: 12px;
+  color: #1b2330;
+}
+
+.row label {
+  flex: 1;
+  color: #2e3a4e;
+}
+
+.row input[type=range] {
+  flex: 1;
+}
+
+.sw {
+  position: relative;
+  width: 34px;
+  height: 20px;
+  background: #d6dbe5;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 160ms ease;
+}
+
+.sw.on {
+  background: #3F92DB;
+}
+
+.sw::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+  background: #fff;
+  border-radius: 50%;
+  transition: left 160ms ease;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
+
+.sw.on::after {
+  left: 16px;
+}
+
+.btn-sm {
+  background: #1b2330;
+  color: #fff;
+  border: 0;
+  padding: 7px 10px;
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+.btn-sm.ghost {
+  background: #f3f5f9;
+  color: #1b2330;
+}
+
+.legend {
+  margin-top: 10px;
+  padding: 10px;
+  background: #f8fafd;
+  border-radius: 8px;
+  font-size: 11px;
+  color: #5b6678;
+  line-height: 15px;
+}
+
+/* ── Qualifier entrance animations ── */
+
+@keyframes qualifierSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.97);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(-2px) scale(1.005);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes qualifierFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── Opt-in → Pre-qual transition ── */
+
+@keyframes prequal-section-in {
+  0% {
+    opacity: 0;
+    transform: translateY(24px) scale(0.96);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ── Completion animations ── */
+
+@keyframes checkPop {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes checkDraw {
+  0% {
+    stroke-dashoffset: 20;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
