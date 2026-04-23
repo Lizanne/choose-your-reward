@@ -98,10 +98,10 @@ export default function App() {
           pickerOpenOverride={pickerOpenOverride}
           setPickerOpenOverride={setPickerOpenOverride}
           depositPct={depositPct}
-          depositLabel={`\u00a3${Math.round(depositPct*20)} of \u00a320`}
+          depositLabel={<><span style={{fontWeight:700}}>{'\u00a3'}{Math.round(depositPct*20)}</span> of {'\u00a3'}20</>}
           onDeposit={handleDeposit}
           playPct={playPct}
-          playLabel={`\u00a3${Math.round(playPct*50)} of \u00a350 cash`}
+          playLabel={<><span style={{fontWeight:700}}>{'\u00a3'}{Math.round(playPct*50)}</span> of {'\u00a3'}50 cash</>}
           onPlay={handlePlay}
           showCopyHint={true}
         />
