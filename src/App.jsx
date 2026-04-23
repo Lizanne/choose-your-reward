@@ -42,10 +42,19 @@ export default function App() {
 
   const handleSelect = (id) => {
     setSelectedGameId(id);
-    setPickerOpenOverride(false);
   };
 
   const clearToast = () => setToastMsg(null);
+
+  const resetDemo = () => {
+    setState('optin');
+    setSelectedGameId(null);
+    setDisabledIds([]);
+    setToastMsg(null);
+    setDepositPct(0);
+    setPlayPct(0);
+    setPickerOpenOverride(false);
+  };
 
   return (
     <div data-component="App" className="page">
@@ -96,6 +105,16 @@ export default function App() {
           onPlay={handlePlay}
           showCopyHint={true}
         />
+
+        {state === 'qualified' && (
+          <button onClick={resetDemo} style={{
+            width: '100%', padding: 12, borderRadius: 8,
+            background: '#F4F4F5', border: 0,
+            fontFamily: 'Figtree, sans-serif',
+            fontWeight: 600, fontSize: 14, lineHeight: '20px',
+            color: '#71717a', cursor: 'pointer',
+          }}>Restart demo</button>
+        )}
       </div>
     </div>
   );

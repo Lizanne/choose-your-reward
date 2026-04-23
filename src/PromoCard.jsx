@@ -48,21 +48,31 @@ export default function PromoCard({
     prevHadPick.current = hasPick;
   }, [hasPick, inPrequal]);
 
-  // Track opt-in → pre-qual transition
+  // Track state transitions for entrance animations
   const [showPrequal, setShowPrequal] = useState(state !== 'optin');
+  const [animateQualified, setAnimateQualified] = useState(false);
   const prevState = useRef(state);
   useEffect(() => {
     if (prevState.current === 'optin' && state === 'prequal') {
       const t = setTimeout(() => setShowPrequal(true), 100);
       return () => clearTimeout(t);
     }
-    if (state === 'optin') setShowPrequal(false);
-    else setShowPrequal(true);
+    if (prevState.current === 'prequal' && state === 'qualified') {
+      setAnimateQualified(true);
+      const t = setTimeout(() => setAnimateQualified(false), 1200);
+      return () => clearTimeout(t);
+    }
+    if (state === 'optin') {
+      setShowPrequal(false);
+      setAnimateQualified(false);
+    } else {
+      setShowPrequal(true);
+    }
     prevState.current = state;
   }, [state]);
 
-  const [localOpen, setLocalOpen] = useState(false);
-  const pickerOpen = inPrequal && (!hasPick || localOpen || pickerOpenOverride);
+  const [localOpen, setLocalOpen] = useState(true);
+  const pickerOpen = inPrequal && (localOpen || pickerOpenOverride);
 
   const togglePicker = () => {
     if (!hasPick) return;
@@ -262,7 +272,12 @@ export default function PromoCard({
           display: 'flex', flexDirection: 'column', gap: 20,
         }}>
           {/* ── Rewards: game row with play button ── */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+          <div style={{
+            display: 'flex', flexDirection: 'column', gap: 16,
+            ...(animateQualified ? {
+              animation: 'qualifiedSectionIn 600ms cubic-bezier(0.0, 0.0, 0.2, 1) 0ms both',
+            } : {}),
+          }}>
             <div style={{
               fontWeight: 700, fontSize: 16, lineHeight: '24px',
               color: '#fff',
@@ -286,12 +301,20 @@ export default function PromoCard({
                 background: 'rgba(0,0,0,0.25)',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                 flexShrink: 0, cursor: 'pointer',
+                ...(animateQualified ? {
+                  animation: 'qualifiedPlayPulse 800ms cubic-bezier(0.0, 0.0, 0.2, 1) 400ms both',
+                } : {}),
               }}>{Icons.play}</div>
             </div>
           </div>
 
           {/* ── Qualifiers: single "Qualified" row ── */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+          <div style={{
+            display: 'flex', flexDirection: 'column', gap: 16,
+            ...(animateQualified ? {
+              animation: 'qualifiedSectionIn 600ms cubic-bezier(0.0, 0.0, 0.2, 1) 150ms both',
+            } : {}),
+          }}>
             <div style={{
               fontWeight: 700, fontSize: 16, lineHeight: '24px',
               color: '#fff',

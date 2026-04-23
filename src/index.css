@@ -237,3 +237,37 @@ button {
     stroke-dashoffset: 0;
   }
 }
+
+/* ── Pre-qual → Qualified transition ── */
+
+@keyframes qualifiedSectionIn {
+  0% {
+    opacity: 0;
+    transform: translateY(16px) scale(0.98);
+  }
+  40% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes qualifiedPlayPulse {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+    box-shadow: 0 0 0 0 rgba(255,255,255,0.4);
+  }
+  50% {
+    transform: scale(1.08);
+    opacity: 1;
+    box-shadow: 0 0 0 8px rgba(255,255,255,0);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+    box-shadow: none;
+  }
+}
