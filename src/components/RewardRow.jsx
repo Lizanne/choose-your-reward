@@ -79,7 +79,7 @@ export default function RewardRow({ mode, game, onToggle, open, qualified, unava
           <span style={{
             fontWeight: 500, fontSize: 12, lineHeight: '16px',
             color: 'rgba(255,255,255,0.8)',
-          }}>2 hrs left to play</span>
+          }}><span style={{fontWeight:700}}>2 hrs</span> <span style={{fontWeight:400}}>left to play</span></span>
         </div>
         <div style={{
           width: 44, height: 44, borderRadius: 8,

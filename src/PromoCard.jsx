@@ -85,10 +85,10 @@ export default function PromoCard({
   const unavailableNotice = !hasPick && disabledIds.length > 0 && inPrequal;
 
   const footerTime = state === 'qualified'
-    ? '2 hrs left to play'
+    ? <><span style={{fontWeight:700}}>2 hrs</span> <span style={{fontWeight:400}}>left to play</span></>
     : state === 'optin'
-      ? '18 hours left to opt in'
-      : '19 hrs 47 min left to qualify';
+      ? <><span style={{fontWeight:700}}>20 hrs</span> <span style={{fontWeight:400}}>left to opt in</span></>
+      : <><span style={{fontWeight:700}}>19 hrs 47 min</span> <span style={{fontWeight:400}}>left to qualify</span></>;
 
   return (
     <div data-component="PromoCard" style={{
