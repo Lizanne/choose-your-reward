@@ -1,7 +1,7 @@
 export const GAME_LIB = {
   nova: {
     id: 'nova',
-    name: 'Nova Rush',
+    name: 'Starbust',
     tagline: '10 Free spins',
     image: '/assets/game-1.png',
     bg: 'radial-gradient(120% 120% at 20% 20%, #ffd36b 0%, #ff7a3d 45%, #6a1b9a 100%)',
@@ -10,7 +10,7 @@ export const GAME_LIB = {
   },
   deep: {
     id: 'deep',
-    name: 'Deep Reef',
+    name: 'Big Bass Bonanza',
     tagline: '10 Free spins',
     image: '/assets/game-2.png',
     bg: 'radial-gradient(120% 120% at 30% 20%, #8fe9ff 0%, #2b7fd4 40%, #0a1f4a 100%)',
@@ -19,7 +19,7 @@ export const GAME_LIB = {
   },
   ember: {
     id: 'ember',
-    name: 'Ember Rise',
+    name: 'Big Cat Gold',
     tagline: '10 Free spins',
     image: '/assets/game-3.png',
     bg: 'radial-gradient(120% 120% at 70% 20%, #ffb199 0%, #e23b3b 45%, #3a0a0a 100%)',
