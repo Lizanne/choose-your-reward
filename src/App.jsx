@@ -66,7 +66,7 @@ export default function App() {
       }} className="card-shell">
         <div className="promo-header" style={{
           display: 'flex', alignItems: 'center',
-          padding: '12px 0',
+          paddingTop: 12, paddingBottom: 12,
         }}>
           <div style={{
             width: 44, height: 44, borderRadius: '50%',
