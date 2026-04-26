@@ -41,9 +41,29 @@ button {
 
   .card-shell {
     max-width: none !important;
-    padding-top: env(safe-area-inset-top, 24px) !important;
+    padding-top: 0 !important;
     padding-left: max(16px, env(safe-area-inset-left, 16px)) !important;
     padding-right: max(16px, env(safe-area-inset-right, 16px)) !important;
+  }
+}
+
+.promo-header {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  background: #fff;
+  margin: 0 -16px;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+@media (max-width: 430px) {
+  .promo-header {
+    padding-top: max(12px, env(safe-area-inset-top, 12px));
+    margin-left: calc(-1 * max(16px, env(safe-area-inset-left, 16px)));
+    margin-right: calc(-1 * max(16px, env(safe-area-inset-right, 16px)));
+    padding-left: max(16px, env(safe-area-inset-left, 16px));
+    padding-right: max(16px, env(safe-area-inset-right, 16px));
   }
 }
 

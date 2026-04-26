@@ -64,7 +64,7 @@ export default function App() {
         padding: '24px 16px 60px',
         display: 'flex', flexDirection: 'column', gap: 14,
       }} className="card-shell">
-        <div style={{
+        <div className="promo-header" style={{
           display: 'flex', alignItems: 'center',
           padding: '12px 0',
         }}>
