@@ -4,7 +4,7 @@ import { GAME_LIB } from './games'
 export default function CardHero({ copyHint }) {
   return (
     <div data-component="CardHero" style={{
-      position: 'relative', width: '100%', height: 240,
+      position: 'relative', width: '100%', aspectRatio: '358 / 240',
       background: 'linear-gradient(180deg, #4fa0e0 0%, #2f7cc4 65%, #2470b8 100%)',
       overflow: 'hidden',
     }}>

@@ -7,6 +7,8 @@ html, body {
   font-family: 'Figtree', system-ui, sans-serif;
   color: #1b2330;
   -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
 }
 
 *, *::before, *::after {
@@ -15,15 +17,34 @@ html, body {
 
 button {
   font-family: inherit;
+  touch-action: manipulation;
 }
 
 .page {
   min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 40px 24px 80px;
+  padding-bottom: max(80px, env(safe-area-inset-bottom, 0px));
   gap: 40px;
+}
+
+@media (max-width: 430px) {
+  .page {
+    align-items: flex-start;
+    padding: 0;
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+    background: #fff;
+  }
+
+  .card-shell {
+    max-width: none !important;
+    padding-top: env(safe-area-inset-top, 24px) !important;
+    padding-left: max(16px, env(safe-area-inset-left, 16px)) !important;
+    padding-right: max(16px, env(safe-area-inset-right, 16px)) !important;
+  }
 }
 
 .phone-wrap {

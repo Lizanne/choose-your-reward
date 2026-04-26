@@ -75,7 +75,6 @@ export default function PromoCard({
   const pickerOpen = inPrequal && (localOpen || pickerOpenOverride);
 
   const togglePicker = () => {
-    if (!hasPick) return;
     const next = !localOpen;
     setLocalOpen(next);
     if (setPickerOpenOverride) setPickerOpenOverride(false);
@@ -108,7 +107,8 @@ export default function PromoCard({
             src="/assets/promo-hero.webp"
             alt="Get 10 Free Spins when you buy scratch"
             style={{
-              width: '100%', height: state === 'optin' ? 268 : 244, objectFit: 'cover', display: 'block',
+              width: '100%', height: 'auto', aspectRatio: state === 'optin' ? '358 / 268' : '358 / 244',
+              objectFit: 'cover', display: 'block',
             }}
           />
         ) : (
